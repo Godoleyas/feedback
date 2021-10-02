@@ -15,7 +15,7 @@ async def cb_handler(c, m):
       button = [[InlineKeyboardButton("cancel", callback_data="cancel")]]
       markup = InlineKeyboardMarkup(button)
       await m.message.delete()
-      await c.send_message(chat_id=m.message.chat.id, text="Send your feed back here I will notify the admin.", reply_markup=markup)
+      await c.send_message(chat_id=m.message.chat.id, text="Send your feed back here I will notify Papy.", reply_markup=markup)
 
   if "cancel" in cb_data:
       if m.from_user.id in Config.feedback:
@@ -49,7 +49,7 @@ async def cb_handler(c, m):
   if "reply" in cb_data:
       id = m.data.split("+")[1]
       Config.SEND.append(id)
-      await c.send_message(chat_id=m.message.chat.id, text="Reply me the text which you wantedto send him")
+      await c.send_message(chat_id=m.message.chat.id, text="Reply me the text which you wanted to send him")
 
   if "about" in cb_data:
       await m.message.delete()
